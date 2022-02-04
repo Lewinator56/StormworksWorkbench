@@ -57,7 +57,15 @@ ApplicationWindow {
         Item {
                 SplitView.minimumHeight: 25
                 SplitView.preferredHeight: mainWindow.height/4
-
+                TabBar {
+                    width: parent.width
+                    TabButton {
+                        text: qsTr("Output")
+                    }
+                    TabButton {
+                        text: qsTr("Console")
+                    }
+                }
             }
 
         // ...
