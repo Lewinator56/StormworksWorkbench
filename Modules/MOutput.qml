@@ -1,11 +1,30 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 Item {
-    Rectangle {
-        height: 100
-        width: 100
-        color: "red"
+    z: -1
+    Pane {
+
+        width: parent.width
+        padding: 1
+
+
+        Material.elevation: 1
+        Material.background: Material.primary
+        leftPadding: 5
+        RowLayout {
+
+            Button {
+                text: qsTr("Clear")
+                Material.background: "#d32f2f"
+            }
+            CheckBox {
+                text: qsTr("Clear on refresh")
+            }
+        }
+
+
     }
 
     ListModel {
