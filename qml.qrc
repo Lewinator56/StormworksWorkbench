@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Modules/MOutput.qml</file>
+    </qresource>
+</RCC>

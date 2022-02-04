@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Material
+import QtQuick.Layouts
+import "qrc:/../Modules" as Modules
 
 ApplicationWindow {
     width: 640
@@ -8,10 +10,17 @@ ApplicationWindow {
     title: qsTr("Stormworks Workbench")
     id: mainWindow
 
+    Material.primary: "#37474f"
     Material.theme:  Material.Dark
+    Material.accent: "#f9a825"
 
     menuBar: MenuBar {
-        Material.elevation: 1
+        background: Rectangle {
+            color: Material.primary
+            Material.elevation: 6
+        }
+
+        Material.elevation: 6
            Menu {
                title: qsTr("&File")
                Action { text: qsTr("&New...") }
@@ -57,16 +66,52 @@ ApplicationWindow {
         Item {
                 SplitView.minimumHeight: 25
                 SplitView.preferredHeight: mainWindow.height/4
-                TabBar {
+                width: parent.width
+                ColumnLayout {
+                    Layout.fillWidth: true
                     width: parent.width
-                    TabButton {
-                        text: qsTr("Output")
+                    anchors.fill: parent
+                    TabBar {
+                        width: parent.width
+                        id: dbgTabBar
+                        background: Rectangle {
+                            color: Material.primary
+                            width: mainWindow.width
+                            Material.elevation: 6
+                        }
+
+                        TabButton {
+                            width: 100
+                            text: qsTr("Output")
+
+                        }
+                        TabButton {
+                            width: 100
+                            text: qsTr("Console")
+
+                        }
                     }
-                    TabButton {
-                        text: qsTr("Console")
+
+
+                    StackLayout {
+                        width: parent.width
+                        currentIndex: dbgTabBar.currentIndex
+                        Item {
+                            id: outputTab
+                            Modules.MOutput {
+                                anchors.fill: parent
+                            }
+                        }
+                        Item {
+                            id: consoleTab
+                        }
                     }
                 }
+
+
+
             }
+
 
         // ...
     }
