@@ -51,6 +51,8 @@ T.TabButton {
 
     padding: 6
     spacing: 6
+    property var host
+    width: t.width + 50
 
     icon.width: 24
     icon.height: 24
@@ -61,6 +63,7 @@ T.TabButton {
     contentItem: RowLayout {
 
         IconLabel {
+            id: t
             spacing: control.spacing
             mirrored: control.mirrored
             display: control.display
@@ -74,6 +77,7 @@ T.TabButton {
         Fus.Button {
             id: closeButton
             Text {
+
                 text: "x"
                 font: control.font
 
@@ -89,7 +93,8 @@ T.TabButton {
             }
 
             onClicked: {
-                control.closeTab
+                host.closeTab(control)
+
             }
 
             visible: control.checked || control.hovered ? true : false

@@ -17,16 +17,19 @@ Item {
         Custom.CustomTabButton {
             text: qsTr("test")
             width: 100
+            host: workspaceBar
 
         }
         Custom.CustomTabButton {
             text: qsTr("test")
             width:100
+            host: workspaceBar
 
         }
         Custom.CustomTabButton {
             text: qsTr("test")
             width:100
+            host: workspaceBar
 
         }
 
@@ -34,13 +37,19 @@ Item {
             id: tabButton
             Custom.CustomTabButton {
                 text: "test"
-                width: 100
+
+                host: workspaceBar
             }
         }
 
         function loadTab(name) {
 
             var t = workspaceBar.addItem(tabButton.createObject(workspaceBar, {text: name}))
+        }
+        function closeTab(tab) {
+
+            workspaceBar.removeItem(tab)
+
         }
     }
     StackLayout {

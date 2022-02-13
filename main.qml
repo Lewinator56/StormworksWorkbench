@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import QtQuick.Controls.Fusion as Fus
 import "qrc:/../Modules" as Modules
 import "qrc:/../CustomComponents" as Custom
+import QtQuick.Dialogs
 
 
 ApplicationWindow {
@@ -56,7 +57,7 @@ ApplicationWindow {
                MenuSeparator {}
                Action {
                    text: qsTr("Import Mesh")
-                   onTriggered: workspace.addTab("test")
+                   onTriggered: fdg.open()
                }
                Action { text: qsTr("Import OBJ") }
                Material.background: Material.primary
@@ -205,5 +206,17 @@ ApplicationWindow {
 
 
         // ...
+    }
+    FileDialog {
+        id: fdg
+        onAccepted: {
+            loadMesh(fdg.selectedFile.toString().slice(fdg.selectedFile.toString().lastIndexOf("/")+1))
+        }
+        selectedNameFilter.index: 0
+        nameFilters: [".Mesh Files (*.mesh)"]
+    }
+
+    function loadMesh(path) {
+        workspace.addTab(path)
     }
 }
