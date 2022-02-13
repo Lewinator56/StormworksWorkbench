@@ -22,4 +22,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    Modules/MOutput.qml
+    CustomComponents/CustomTabButton.qml \
+    Modules/MOutput.qml \
+    Modules/Workspace.qml \
+    qtquickcontrols2.conf

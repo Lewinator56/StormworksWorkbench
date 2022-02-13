@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>Modules/MOutput.qml</file>
+        <file>CustomComponents/CustomTabButton.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Modules/Workspace.qml</file>
     </qresource>
 </RCC>

@@ -2,7 +2,9 @@ import QtQuick
 import QtQuick.Controls.Material
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Controls.Fusion as Fus
 import "qrc:/../Modules" as Modules
+import "qrc:/../CustomComponents" as Custom
 
 
 ApplicationWindow {
@@ -16,6 +18,7 @@ ApplicationWindow {
     Material.theme:  Material.Dark
     Material.accent: "#f9a825"
     Material.background: "#000a12"
+
 
     menuBar: MenuBar {
         Material.background: Material.primary
@@ -51,7 +54,10 @@ ApplicationWindow {
                title: qsTr("Project")
                Action { text: qsTr("Publish") }
                MenuSeparator {}
-               Action { text: qsTr("Import Mesh") }
+               Action {
+                   text: qsTr("Import Mesh")
+                   onTriggered: workspace.addTab("test")
+               }
                Action { text: qsTr("Import OBJ") }
                Material.background: Material.primary
            }
@@ -123,10 +129,14 @@ ApplicationWindow {
                     Item {
                         SplitView.minimumWidth: 25
                         SplitView.preferredWidth: mainWindow.width/4
+
                     }
-                    Item {
+                    Modules.Workspace {
+                        id: workspace
                         SplitView.minimumWidth: 25
                         SplitView.preferredWidth: mainWindow.width/2 * 3
+
+
                     }
                 }
 
@@ -158,6 +168,7 @@ ApplicationWindow {
                                 width: 100
                                 height: parent.height
                                 text: qsTr("Output")
+
 
 
                             }
