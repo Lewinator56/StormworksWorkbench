@@ -116,6 +116,7 @@ ApplicationWindow {
                 SplitView.preferredHeight: mainWindow.height/3*2
 
                 SplitView {
+
                     anchors.fill: parent
                     orientation: Qt.Horizontal
 
@@ -136,6 +137,8 @@ ApplicationWindow {
                         id: workspace
                         SplitView.minimumWidth: 25
                         SplitView.preferredWidth: mainWindow.width/2 * 3
+                        height: parent.height
+
 
 
                     }

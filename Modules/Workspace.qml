@@ -2,12 +2,16 @@ import QtQuick 2.0
 import QtQuick.Controls.Fusion as Fus
 import QtQuick.Controls
 import "qrc:/../../CustomComponents" as Custom
+import "qrc:/../../Modules" as Modules
 import QtQuick.Layouts
 
 Item {
+    id: control
     function addTab(name, module) {
         workspaceBar.loadTab(name)
     }
+    height: parent.height
+    width: parent.width
 
     Fus.TabBar {
         implicitHeight: 30
@@ -55,6 +59,17 @@ Item {
     StackLayout {
         id: workspaceView
         currentIndex: workspaceBar.currentIndex
+        Item {
+
+            Modules.MeshEditor {
+                anchors.bottom: control.bottom
+                y: workspaceBar.height
+                height: control.height - workspaceBar.height
+                width: control.width / 2
+            }
+        }
+
+
 
     }
 }

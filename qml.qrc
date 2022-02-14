@@ -4,5 +4,6 @@
         <file>CustomComponents/CustomTabButton.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>Modules/Workspace.qml</file>
+        <file>Modules/MeshEditor.qml</file>
     </qresource>
 </RCC>

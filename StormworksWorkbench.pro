@@ -24,5 +24,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     CustomComponents/CustomTabButton.qml \
     Modules/MOutput.qml \
+    Modules/MeshEditor.qml \
     Modules/Workspace.qml \
     qtquickcontrols2.conf
