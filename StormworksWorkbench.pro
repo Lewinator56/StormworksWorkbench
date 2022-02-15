@@ -4,6 +4,7 @@ SOURCES += \
         MeshData/Common/vector3.cpp \
         MeshData/Common/vertex_color.cpp \
         MeshData/mesh.cpp \
+        MeshData/triangle.cpp \
         MeshData/vertex.cpp \
         main.cpp
 
@@ -36,4 +37,5 @@ HEADERS += \
     MeshData/Common/vector3.h \
     MeshData/Common/vertex_color.h \
     MeshData/mesh.h \
+    MeshData/triangle.h \
     MeshData/vertex.h
