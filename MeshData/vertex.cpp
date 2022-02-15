@@ -1,7 +1,10 @@
 #include "vertex.h"
 
+Vertex::Vertex() {
 
-Vertex::Vertex(Vector3 *position, VertexColor *color, Vector3 *normal, int index)
+}
+
+Vertex::Vertex(const Vector3 &position, const VertexColor &color, const Vector3 &normal, const int &index)
 {
     this->position = position;
     this->normal = normal;
