@@ -1,6 +1,10 @@
 QT += quick
 
 SOURCES += \
+        MeshData/Common/vector3.cpp \
+        MeshData/Common/vertex_color.cpp \
+        MeshData/mesh.cpp \
+        MeshData/vertex.cpp \
         main.cpp
 
 resources.files = main.qml 
@@ -27,3 +31,9 @@ DISTFILES += \
     Modules/MeshEditor.qml \
     Modules/Workspace.qml \
     qtquickcontrols2.conf
+
+HEADERS += \
+    MeshData/Common/vector3.h \
+    MeshData/Common/vertex_color.h \
+    MeshData/mesh.h \
+    MeshData/vertex.h
