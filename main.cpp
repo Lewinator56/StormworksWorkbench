@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "MeshData/mesh_parser.h"
 
 
 int main(int argc, char *argv[])
@@ -14,6 +15,8 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+
+    MeshParser::loadFile(QString("C:/Users/lewis/Desktop/m_component_mwindow_edge.mesh"));
 
     return app.exec();
 }

@@ -1,12 +1,26 @@
 #include "mesh_parser.h"
+#include <stdlib.h>
+#include <iostream>
+#include "vertex.h"
+#include <QVector>
+#include <QFile>
 
 
 MeshParser::MeshParser()
 {
 
 }
-Mesh MeshParser::parse(quint8 *data) {
+void MeshParser::loadFile(QString path) {
+    QFile file(path);
+    file.open(QIODevice::ReadOnly);
+    QByteArray da = file.readAll();
+    file.close();
+    MeshParser::parse(da);
+
+}
+Mesh MeshParser::parse(QByteArray &data) {
     Mesh m = Mesh();
+    char *pData = data.data();
 
     // set the file iterator
     int fi = 0;
@@ -16,10 +30,19 @@ Mesh MeshParser::parse(quint8 *data) {
     quint16 vc = data[9] << 8 | data[8];
     fi += 14;
 
-    QList<Vertex> vertices = QList<Vertex>();
+    QVector<Vertex> vertices = QVector<Vertex>();
+    // this probably isnt memory safe, but who cares
     for (int i = 0; i < vc; i++) {
-        float px = data[fi];
-        float py = data[fi + 4];
+        char* vptr = pData+fi;
+        float px = *(float*)(vptr);
+        float py = *(float*)(vptr+4);
+        float pz = *(float*)(vptr+8);
+        VertexColor c = VertexColor(*(vptr+12), *(vptr+13), *(vptr+14), *(vptr+15));
+        float nx = *(float*)(vptr+16);
+        float ny = *(float*)(vptr+20);
+        float nz = *(float*)(vptr+24);
+        std::cout << c.r << std::endl;
+
 
     }
     return m;

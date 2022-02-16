@@ -10,7 +10,8 @@ class MeshParser
 {
 public:
     MeshParser();
-    static Mesh parse(quint8 data[]);
+    static Mesh parse(QByteArray &data);
+    static void loadFile(QString path);
 };
 
 #endif // MESHPARSER_H
