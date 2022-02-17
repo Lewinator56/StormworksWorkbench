@@ -8,7 +8,7 @@ Vector3::Vector3()
     init = false;
 }
 
-Vector3::Vector3(const float &x, const float &y, const float &z)
+Vector3::Vector3(float *x, float *y, float *z)
 {
     this->x = x;
     this->y = y;

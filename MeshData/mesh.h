@@ -7,10 +7,10 @@
 class Mesh
 {
 public:
-    QList<SubMesh> submeshes;
+    QList<SubMesh*> submeshes;
 
     Mesh();
-    void addSubMesh(const SubMesh &s);
+    void addSubMesh(SubMesh *s);
 
 };
 

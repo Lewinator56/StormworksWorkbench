@@ -30,18 +30,16 @@ Mesh MeshParser::parse(QByteArray &data) {
     quint16 vc = data[9] << 8 | data[8];
     fi += 14;
 
-    QVector<Vertex> vertices = QVector<Vertex>();
+    QVector<Vertex*> vertices = QVector<Vertex*>();
     // this probably isnt memory safe, but who cares
-    for (int i = 0; i < vc; i++) {
+    for (int i = 0; i < vc; i++, fi+=28) {
         char* vptr = pData+fi;
-        float px = *(float*)(vptr);
-        float py = *(float*)(vptr+4);
-        float pz = *(float*)(vptr+8);
-        VertexColor c = VertexColor(*(vptr+12), *(vptr+13), *(vptr+14), *(vptr+15));
-        float nx = *(float*)(vptr+16);
-        float ny = *(float*)(vptr+20);
-        float nz = *(float*)(vptr+24);
-        std::cout << c.r << std::endl;
+        Vector3 p = Vector3((float*)(vptr), (float*)(vptr+4), (float*)(vptr+8));
+        VertexColor c = VertexColor((quint8*)(vptr+12), (quint8*)(vptr+13), (quint8*)(vptr+14), (quint8*)(vptr+15));
+        Vector3 n = Vector3((float*)(vptr+16), (float*)(vptr+20), (float*)(vptr+24));
+        //std::cout << *n.x << std::endl;
+        //*n.x = 23.0;
+        //std::cout << *(float*)(vptr+16) << std::endl ;
 
 
     }

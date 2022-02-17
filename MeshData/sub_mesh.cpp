@@ -8,36 +8,36 @@ void SubMesh::addTriangle(const Triangle &t) {
     triangles.append(t);
 }
 
-void SubMesh::setCullingMin(const float &x, const float &y, const float &z) {
-    if (!cullingMin.init)
+void SubMesh::setCullingMin(float *x, float *y, float *z) {
+    if (!cullingMin->init)
     {
-        cullingMin = Vector3(x, y, z);
+        *cullingMin = Vector3(0, 0, 0);
     }
     else
     {
-        cullingMin.x = x < cullingMin.x ? x : cullingMin.x;
-        cullingMin.y = y < cullingMin.y ? y : cullingMin.y;
-        cullingMin.z = z < cullingMin.z ? z : cullingMin.z;
+        *cullingMin->x = *x < *cullingMin->x ? *x : *cullingMin->x;
+        *cullingMin->y = *y < *cullingMin->y ? *y : *cullingMin->y;
+        *cullingMin->z = *z < *cullingMin->z ? *z : *cullingMin->z;
     }
 }
 
-void SubMesh::setCullingMax(const float &x, const float &y, const float &z) {
-    if (!cullingMax.init)
+void SubMesh::setCullingMax(float *x, float *y, float *z) {
+    if (!cullingMax->init)
     {
-        cullingMax = Vector3(x, y, z);
+        *cullingMax = Vector3(0, 0, 0);
     }
     else
     {
-        cullingMax.x = x > cullingMax.x ? x : cullingMax.x;
-        cullingMax.y = y > cullingMax.y ? y : cullingMax.y;
-        cullingMax.z = z > cullingMax.z ? z : cullingMax.z;
+        *cullingMax->x = *x > *cullingMax->x ? *x : *cullingMax->x;
+        *cullingMax->y = *y > *cullingMax->y ? *y : *cullingMax->y;
+        *cullingMax->z = *z > *cullingMax->z ? *z : *cullingMax->z;
     }
 }
 
-void SubMesh::setShader(const quint8 &shaderID) {
+void SubMesh::setShader(quint8 *shaderID) {
     this->shaderID = shaderID;
 }
 
-void SubMesh::setColor(const VertexColor &col) {
+void SubMesh::setColor(VertexColor *col) {
     this->color = col;
 }

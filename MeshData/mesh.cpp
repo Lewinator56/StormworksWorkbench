@@ -4,8 +4,8 @@
 
 Mesh::Mesh()
 {
-    submeshes = QList<SubMesh>();
+    submeshes = QList<SubMesh*>();
 }
-void Mesh::addSubMesh(const SubMesh &s) {
+void Mesh::addSubMesh(SubMesh *s) {
     submeshes.append(s);
 }

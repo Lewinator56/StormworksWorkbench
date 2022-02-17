@@ -6,9 +6,9 @@
 class Triangle
 {
 public:
-    Vertex vertices[3];
+    Vertex *vertices[3];
 
-    Triangle(const Vertex &v1, const Vertex &v2, const Vertex &v3);
+    Triangle(Vertex *v1,Vertex *v2,Vertex *v3);
 };
 
 #endif // TRIANGLE_H

@@ -4,7 +4,7 @@ Vertex::Vertex() {
 
 }
 
-Vertex::Vertex(const Vector3 &position, const VertexColor &color, const Vector3 &normal, const int &index)
+Vertex::Vertex(Vector3 *position, VertexColor *color,Vector3 *normal,int index)
 {
     this->position = position;
     this->normal = normal;
