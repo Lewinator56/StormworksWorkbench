@@ -2,9 +2,9 @@
 
 SubMesh::SubMesh()
 {
-    triangles = QList<Triangle>();
+    triangles = QList<Triangle*>();
 }
-void SubMesh::addTriangle(const Triangle &t) {
+void SubMesh::addTriangle(Triangle *t) {
     triangles.append(t);
 }
 
@@ -34,7 +34,7 @@ void SubMesh::setCullingMax(float *x, float *y, float *z) {
     }
 }
 
-void SubMesh::setShader(quint8 *shaderID) {
+void SubMesh::setShader(quint16 *shaderID) {
     this->shaderID = shaderID;
 }
 
