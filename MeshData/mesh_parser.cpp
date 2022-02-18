@@ -18,6 +18,21 @@ Mesh* MeshParser::loadFile(QString path) {
     return MeshParser::parse(da);
 
 }
+
+/**
+ * @brief MeshParser::parse
+ * @param data Reference to the array of data to parse
+ * @return the structured mesh data referencing the raw array
+ *
+ * This iterates through the raw mesh data supplied and creates a reference-type data structure to
+ * that can be easily iterated through to find and edit mesh properties. The struture uses pointers
+ * to ensure that any raw data that is accesses is always reading from the mesh data array rather than
+ * any copies that could be created. This means that when writing the data back out to a file, the data in
+ * Mesh.data can simply be dumped and will contain any changes made by accessing positions, colors and normals in
+ * the data structure.
+ *
+ * This was a bloody pain to write.
+ */
 Mesh* MeshParser::parse(QByteArray &data) {
     Mesh *m = new Mesh(data);
     char *pData = m->data.data();
