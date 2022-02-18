@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-    MeshParser::loadFile(QString("C:/Users/lewis/Desktop/m_component_mwindow_edge.mesh"));
+    Mesh *m = MeshParser::loadFile(QString("C:/Users/lewis/Desktop/m_component_mwindow_edge.mesh"));
 
     return app.exec();
 }

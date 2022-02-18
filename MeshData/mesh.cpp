@@ -2,8 +2,9 @@
 #include "sub_mesh.h"
 
 
-Mesh::Mesh()
+Mesh::Mesh(QByteArray data)
 {
+    this->data = data;
     submeshes = QList<SubMesh*>();
 }
 void Mesh::addSubMesh(SubMesh *s) {

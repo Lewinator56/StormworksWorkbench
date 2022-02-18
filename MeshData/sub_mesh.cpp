@@ -9,9 +9,9 @@ void SubMesh::addTriangle(Triangle *t) {
 }
 
 void SubMesh::setCullingMin(float *x, float *y, float *z) {
-    if (!cullingMin->init)
+    if (!cullingMin == NULL)
     {
-        *cullingMin = Vector3(0, 0, 0);
+        cullingMin = new Vector3(x, y, z);
     }
     else
     {
@@ -22,9 +22,9 @@ void SubMesh::setCullingMin(float *x, float *y, float *z) {
 }
 
 void SubMesh::setCullingMax(float *x, float *y, float *z) {
-    if (!cullingMax->init)
+    if (!cullingMax == NULL)
     {
-        *cullingMax = Vector3(0, 0, 0);
+        cullingMax = new Vector3(x, y, z);
     }
     else
     {

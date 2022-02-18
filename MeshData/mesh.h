@@ -8,8 +8,9 @@ class Mesh
 {
 public:
     QList<SubMesh*> submeshes;
+    QByteArray data;
 
-    Mesh();
+    Mesh(QByteArray data);
     void addSubMesh(SubMesh *s);
 
 };
