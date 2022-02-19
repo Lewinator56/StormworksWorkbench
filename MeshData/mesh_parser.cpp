@@ -4,18 +4,19 @@
 #include "vertex.h"
 #include <QVector>
 #include <QFile>
+#include <QTextStream>
 
 
 MeshParser::MeshParser()
 {
 
 }
-Mesh* MeshParser::loadFile(QString path) {
+Mesh* MeshParser::loadMesh(QString path) {
     QFile file(path);
     file.open(QIODevice::ReadOnly);
     QByteArray da = file.readAll();
     file.close();
-    return MeshParser::parse(da);
+    return MeshParser::parseMesh(da);
 
 }
 
@@ -32,8 +33,8 @@ Mesh* MeshParser::loadFile(QString path) {
  * the data structure.
  *
  * This was a bloody pain to write.
- */
-Mesh* MeshParser::parse(QByteArray &data) {
+ **/
+Mesh* MeshParser::parseMesh(QByteArray &data) {
     Mesh *m = new Mesh(data);
     char *pData = m->data.data();
 
@@ -140,3 +141,20 @@ Mesh* MeshParser::parse(QByteArray &data) {
     }
     return m;
 }
+
+Mesh* MeshParser::loadObj(QString path) {
+    QVector<QString> fs = QVector<QString>();
+    QFile f(path);
+    if (f.open(QIODevice::ReadOnly)) {
+        QTextStream in(&f);
+        while(!in.atEnd()) {
+            fs.append(in.readLine());
+        }
+        f.close();
+    }
+    return new Mesh();
+    //return MeshParser::parseObj(fs);
+}
+
+
+

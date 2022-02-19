@@ -10,8 +10,10 @@ class MeshParser
 {
 public:
     MeshParser();
-    static Mesh* parse(QByteArray &data);
-    static Mesh* loadFile(QString path);
+    static Mesh* parseMesh(QByteArray &data);
+    static Mesh* loadMesh(QString path);
+    static Mesh* loadObj(QString path);
+    //static Mesh* parseObj(QVector<QString> &data);
 
     QList<SubMesh*> submeshes;
 };

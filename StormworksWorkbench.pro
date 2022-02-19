@@ -1,10 +1,12 @@
 QT += quick
 
+CONFIG += c++17
 SOURCES += \
         MeshData/Common/vector3.cpp \
         MeshData/Common/vertex_color.cpp \
         MeshData/mesh.cpp \
         MeshData/mesh_parser.cpp \
+        MeshData/obj_parser.cpp \
         MeshData/sub_mesh.cpp \
         MeshData/triangle.cpp \
         MeshData/vertex.cpp \
@@ -40,6 +42,7 @@ HEADERS += \
     MeshData/Common/vertex_color.h \
     MeshData/mesh.h \
     MeshData/mesh_parser.h \
+    MeshData/obj_parser.h \
     MeshData/sub_mesh.h \
     MeshData/triangle.h \
     MeshData/vertex.h

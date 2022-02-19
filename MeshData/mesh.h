@@ -11,6 +11,7 @@ public:
     QByteArray data;
 
     Mesh(QByteArray data);
+    Mesh();
     void addSubMesh(SubMesh *s);
 
 };
