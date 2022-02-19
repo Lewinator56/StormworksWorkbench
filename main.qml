@@ -222,4 +222,5 @@ ApplicationWindow {
     function loadMesh(path) {
         workspace.addTab(path)
     }
+
 }

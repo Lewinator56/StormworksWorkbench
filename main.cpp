@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "MeshData/mesh_parser.h"
+#include "MeshData/obj_parser.h"
 
 
 int main(int argc, char *argv[])
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
     engine.load(url);
 
     Mesh *m = MeshParser::loadMesh(QString("C:/Users/lewis/Desktop/m_component_mwindow_edge.mesh"));
+    ObjParser::parseObj("C:/Users/lewis/source/repos/swcpmc/swcpmc/out/build/x64-Debug/swcpmc/tactical_log.obj", "C:/Users/lewis/source/repos/swcpmc/swcpmc/out/build/x64-Debug/swcpmc/tactical_log.mesh");
 
     return app.exec();
 }

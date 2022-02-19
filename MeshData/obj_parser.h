@@ -16,7 +16,7 @@ class ObjParser
 {
 public:
     ObjParser();
-    void parseObj(std::string pathToMesh, std::string pathToOutput);
+    static void parseObj(std::string pathToMesh, std::string pathToOutput);
 
 };
 
