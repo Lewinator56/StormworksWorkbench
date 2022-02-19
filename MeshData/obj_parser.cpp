@@ -82,8 +82,8 @@ class _SubMesh {
 public:
     vector<_Vertex> _vertices;
     uint16_t _shader;
-    float _cullingMax[3];
-    float _cullingMin[3];
+    float _cullingMax[3] = {0,0,0};
+    float _cullingMin[3] = {0,0,0};
     vector<_Triangle> triangles;
     uint8_t _r;
     uint8_t _g;
