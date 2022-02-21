@@ -3,16 +3,20 @@
 #include "mesh.h"
 #include <QList>
 #include <QtGlobal>
+#include <QObject>
 
 
 
-class MeshParser
+
+class MeshParser:public QObject
 {
+    Q_OBJECT
+
 public:
     MeshParser();
-    static Mesh* parseMesh(QByteArray &data);
-    static Mesh* loadMesh(QString path);
-    static Mesh* loadObj(QString path);
+    Q_INVOKABLE static Mesh* parseMesh(QByteArray &data);
+    Q_INVOKABLE static Mesh* loadMesh(QString path);
+    Q_INVOKABLE static Mesh* loadObj(QString path);
     //static Mesh* parseObj(QVector<QString> &data);
 
     QList<SubMesh*> submeshes;

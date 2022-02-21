@@ -6,6 +6,7 @@ import QtQuick.Controls.Fusion as Fus
 import "qrc:/../Modules" as Modules
 import "qrc:/../CustomComponents" as Custom
 import QtQuick.Dialogs
+import meshdata.swmesh
 
 
 ApplicationWindow {
@@ -213,14 +214,31 @@ ApplicationWindow {
     FileDialog {
         id: fdg
         onAccepted: {
-            loadMesh(fdg.selectedFile.toString().slice(fdg.selectedFile.toString().lastIndexOf("/")+1))
+            loadMesh(fdg.selectedFile, fdg.selectedFile.toString().slice(fdg.selectedFile.toString().lastIndexOf("/")+1))
         }
         selectedNameFilter.index: 0
         nameFilters: [".Mesh Files (*.mesh)"]
     }
+    SwMesh {
+        id: mesh
 
-    function loadMesh(path) {
-        workspace.addTab(path)
+    }
+
+    function loadMesh(path, name) {
+        mesh.setLocation("C:/Users/lewis/Desktop/m_component_mwindow_edge.mesh")
+        mesh.parseMesh()
+        console.log(mesh.getMesh().getSubmesh(0).getTriangle(0).getVertex(0).getColor().getColorList());
+        var m = mesh.getMesh();
+        for (let i = 0; i < m.getSubmeshCount(); i++) {
+            var sm = m.getSubmesh(i);
+            for (let j = 0; j < sm.getTriangleCount(); j++) {
+                var t = sm.getTriangle(i);
+                console.log(t.getVertex(0).getPosition().getVectorList());
+            }
+        }
+
+        workspace.addTab(name)
+
     }
 
 }

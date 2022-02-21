@@ -7,6 +7,7 @@ SOURCES += \
         MeshData/mesh.cpp \
         MeshData/mesh_parser.cpp \
         MeshData/obj_parser.cpp \
+        MeshData/stormworks_mesh.cpp \
         MeshData/sub_mesh.cpp \
         MeshData/triangle.cpp \
         MeshData/vertex.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     MeshData/mesh.h \
     MeshData/mesh_parser.h \
     MeshData/obj_parser.h \
+    MeshData/stormworks_mesh.h \
     MeshData/sub_mesh.h \
     MeshData/triangle.h \
     MeshData/vertex.h

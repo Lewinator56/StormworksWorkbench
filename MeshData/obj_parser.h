@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <QObject>
 
 
 /**
@@ -12,11 +13,12 @@
  * Self contained obj to mesh converter, directly copied from swcpmc (hence the duplicated classes in here for triangles etc...)
  */
 
-class ObjParser
+class ObjParser:public QObject
 {
+    Q_OBJECT
 public:
     ObjParser();
-    static void parseObj(std::string pathToMesh, std::string pathToOutput);
+    Q_INVOKABLE static void parseObj(std::string pathToMesh, std::string pathToOutput);
 
 };
 
