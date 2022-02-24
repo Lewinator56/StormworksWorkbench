@@ -214,7 +214,7 @@ ApplicationWindow {
     FileDialog {
         id: fdg
         onAccepted: {
-            loadMesh(fdg.selectedFile, fdg.selectedFile.toString().slice(fdg.selectedFile.toString().lastIndexOf("/")+1))
+            loadMesh(urlToPath(fdg.selectedFile.toString()), fdg.selectedFile.toString().slice(fdg.selectedFile.toString().lastIndexOf("/")+1))
         }
         selectedNameFilter.index: 0
         nameFilters: [".Mesh Files (*.mesh)"]
@@ -224,8 +224,20 @@ ApplicationWindow {
 
     }
 
+    function urlToPath(urlString) {
+        var s
+        if (urlString.startsWith("file:///")) {
+            var k = urlString.charAt(9) === ':' ? 8 : 7
+            s = urlString.substring(k)
+        } else {
+            s = urlString
+        }
+        return decodeURIComponent(s);
+    }
+
     function loadMesh(path, name) {
-        mesh.setLocation("C:/Users/lewis/Desktop/m_component_mwindow_edge.mesh")
+        mesh.setLocation(path)
+        console.log(path)
         mesh.parseMesh()
         console.log(mesh.getMesh().getSubmesh(0).getTriangle(0).getVertex(0).getColor().getColorList());
         var m = mesh.getMesh();
@@ -233,11 +245,12 @@ ApplicationWindow {
             var sm = m.getSubmesh(i);
             for (let j = 0; j < sm.getTriangleCount(); j++) {
                 var t = sm.getTriangle(i);
-                console.log(t.getVertex(0).getPosition().getVectorList());
+                console.log(i + " " + j + " " +  t.getVertex(0).getPosition().getVectorList());
             }
         }
 
         workspace.addTab(name)
+
 
     }
 

@@ -1,4 +1,4 @@
-QT += quick
+QT += quick quick3d
 
 CONFIG += c++17
 SOURCES += \
@@ -6,6 +6,7 @@ SOURCES += \
         MeshData/Common/vertex_color.cpp \
         MeshData/mesh.cpp \
         MeshData/mesh_parser.cpp \
+        MeshData/mesh_qtmodel.cpp \
         MeshData/obj_parser.cpp \
         MeshData/stormworks_mesh.cpp \
         MeshData/sub_mesh.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     MeshData/Common/vertex_color.h \
     MeshData/mesh.h \
     MeshData/mesh_parser.h \
+    MeshData/mesh_qtmodel.h \
     MeshData/obj_parser.h \
     MeshData/stormworks_mesh.h \
     MeshData/sub_mesh.h \

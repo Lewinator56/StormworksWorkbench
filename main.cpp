@@ -3,12 +3,16 @@
 #include "MeshData/mesh_parser.h"
 #include "MeshData/obj_parser.h"
 #include "MeshData/stormworks_mesh.h"
+#include "MeshData/mesh_qtmodel.h"
+#include <QtQuick3D/QQuick3D>
+#include <QtQuick3D/QQuick3DGeometry>
 
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     qmlRegisterType<StormworksMesh>("meshdata.swmesh", 1, 0, "SwMesh");
+    qmlRegisterType<MeshQtModel>("meshdata.meshqtmodel", 1, 0, "MeshQtModel");
 
     QQmlApplicationEngine engine;
     const QUrl url(u"qrc:/StormworksWorkbench/main.qml"_qs);

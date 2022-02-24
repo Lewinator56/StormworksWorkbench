@@ -21,3 +21,4 @@ void StormworksMesh::setLocation(QString path) {
 Mesh* StormworksMesh::getMesh() {
     return this->mesh;
 }
+

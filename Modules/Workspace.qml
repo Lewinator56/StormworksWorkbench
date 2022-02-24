@@ -5,6 +5,7 @@ import "qrc:/../../CustomComponents" as Custom
 import "qrc:/../../Modules" as Modules
 import QtQuick.Layouts
 
+
 Item {
     id: control
     function addTab(name, module) {
